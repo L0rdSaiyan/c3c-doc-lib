@@ -1,3 +1,5 @@
+<!-- Author: Victor Sales -->
+
 
 <br />
 <div align="center">
@@ -22,7 +24,6 @@
 
   
 <!-- TABLE OF CONTENTS -->
-<details>
   <summary>Conteúdo</summary>
   <ol>
     <li>
@@ -41,16 +42,19 @@
     <ul>
         <li><a href="#metadados">Metadados</a></li>
         <ul>
-            <li><a href="#calloutconfig">C3C Callout Config</a></li>
+            <li><a href="#c3c-callout-config">C3C Callout Config</a></li>
         </ul>
         <ul>
-            <li><a href="#calloutcontract">C3C Callout Contract</a></li>
+            <li><a href="#c3c-callout-contract">C3C Callout Contract</a></li>
         </ul>
     </ul>
+    <li><a href="#classes">Classes</a></li>
+        <ul>
+            <li>C3C_CalloutContract</li>
+        </ul>
     <li><a href="#contributing">Contribuidores</a></li>
     <li><a href="#contact">Contato</a></li>
   </ol>
-</details>
 
 ## Sobre o Projeto
 
@@ -99,5 +103,31 @@ Confirmar com o Luidy dps se a lib só funfa a partir alguma versão específica
 - **11(Authorization Code Type):** métodos de autenticação e autorização (Bearer e Basic) em APIs e sistemas de autenticação, especialmente em protocolos como OAuth 2.0
 
 #### C3C Callout Contract
+
+<span>Será no metadado C3C Callout Cotnract onde você irá configurar as rotas do Host (API) </span>
+
+![](https://media.discordapp.net/attachments/472081051120828416/1289022458984267847/calloutcontract.jpg?ex=66f74f37&is=66f5fdb7&hm=9b1075035982057a4aae1c697a4a0e6ece946e1adfbd18dcef14957e14d36256&=&format=webp)
+
+- **1 (Label):** Defina o rótulo de exibição da sua Callout Contract- **OBRIGATÓRIO**
+- **2 (C3C Callout Contract Name):** O nome de API de sua Callout Contract - **OBRIGATÓRIO**
+- **3 (Protected Component):** Define se o acesso ao metadado dentro de um pacote será limitado.
+- **4 (C3C Callout Config):** Callout Config configurada anteriormente
+- **5 (Path):** Endpoint o qual o contract fará referência. Também é possível declarar os atributos das url dentro do campo path, como no exemplo:
+<br>
+```
+/api/seu_endpoint/atributo={!atributo}
+```
+- **6 (Contract Class Name):** Classe o qual você deverá criar e ela deve herdar a *C3C_CalloutContract*, pois será ela quem irá montar o contrato com todas as informações presentes nos metadados
+- **7 (Global Env. Variables (JSON)):** Definição de variáveis globais em formato JSON, para fácil acesso em seu código Apex
+- **8 (Enable Log):** Habilita a criação de Logs com a request e a response dentro do objeto de logs (*C3C_Log*)
+- **9 (Method):** Verbo HTTP utilizados para indicar a ação que deve ser realizada no chamado para o endpoint
+- **10 (Timeout):** O tempo o qual a classe contrato deverá esperar para receber algum retorno da API
+- **11 (Success Codes):** Status que indicaram sucesso ao se comunicar com a API 
+- **12 (Is it an authorization service?):**
+- **13 (Timeframe for execution (Hours)):**
+- **14 (Token Extraction Class Name):**
+
+
+## Classes
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
