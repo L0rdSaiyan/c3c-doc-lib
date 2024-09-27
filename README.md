@@ -113,7 +113,6 @@ Confirmar com o Luidy dps se a lib só funfa a partir alguma versão específica
 - **3 (Protected Component):** Define se o acesso ao metadado dentro de um pacote será limitado.
 - **4 (C3C Callout Config):** Callout Config configurada anteriormente
 - **5 (Path):** Endpoint o qual o contract fará referência. Também é possível declarar os atributos das url dentro do campo path, como no exemplo:
-<br>
 ```
 /api/seu_endpoint/atributo={!atributo}
 ```
@@ -129,5 +128,3 @@ Confirmar com o Luidy dps se a lib só funfa a partir alguma versão específica
 
 
 ## Classes
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
