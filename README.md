@@ -3,8 +3,8 @@
 
 <br />
 <div align="center">
-  <a href="https://github.com/github_username/repo_name">
-    <img src="https://media.discordapp.net/attachments/472081051120828416/1288998376955973642/c3c-software-logo.png?ex=66f738c9&is=66f5e749&hm=0d07768e0003686e053eb36ef24e4c0c7867965bd4ab47ab4638ce35dac7ef28&=&format=webp&quality=lossless" alt="Logo" width="80" height="80">
+  <a href="https://github.com/c3csoftware">
+    <img src="https://media.discordapp.net/attachments/472081051120828416/1288998376955973642/c3c-software-logo.png?ex=66fa8489&is=66f93309&hm=ffdc3e3e9ca6b29aadfb552caf11b831350c74fd3af839eca5b8ef589daa8a92&=&format=webp&quality=lossless" alt="Logo" width="80" height="80">
   </a>
 
 <h3 align="center">C3C Software Callout LIB</h3>
@@ -47,11 +47,21 @@
         <ul>
             <li><a href="#c3c-callout-contract">C3C Callout Contract</a></li>
         </ul>
+         <li>
+            <a href="#criação-da-classe-callout-contract">Criação da classe Callout Contract</a>
+        </ul>
+        <ul>
+        <li><a href="#realizando-a-requisição">Realizando a requisição</a></li>
+    </ul>
+<ul>
+<li><a href="#obtendo-os-dados-da-requisição">Obtendo os Dados da Requisição</a></li>
+</ul
     </ul>
     <li><a href="#classes">Classes</a></li>
         <ul>
-            <li>C3C_CalloutContract</li>
+            <li><a href="#c3c_calloutcontract">C3C_CalloutContract</a></li>
         </ul>
+    <li><a href="#objetos">Objetos</a></li>
     <li><a href="#contributing">Contribuidores</a></li>
     <li><a href="#contact">Contato</a></li>
   </ol>
@@ -126,5 +136,61 @@ Confirmar com o Luidy dps se a lib só funfa a partir alguma versão específica
 - **13 (Timeframe for execution (Hours)):**
 - **14 (Token Extraction Class Name):**
 
+#### Criação da classe Callout Contract
+
+Como mencionado no tópico anterior, você precisará de uma classe de Callout Contract para que sua requisição possa funcionar. 
+
+Você deverá herdar a classe **C3C_CalloutContract** em sua classe contrato e sobrescrever o método **buildContract**. No final, sua classe contrato deverá seguir essa estrutura:
+
+```apex
+public class YourContract extends C3C_CalloutContract{
+
+    public override void buildContract(Object request)
+    {
+        
+    }
+    
+}
+```
+### Realizando a Requisição
+Após a criação da classe de contrato, realizar a requisição torna-se bastante simples.  
+
+No developer console, execute:
+```apex
+C3C_RestService.service.sendRequest(QuemChamou, seuMetadadoDeContrato);
+```
+**QuemChamou**: *this* ou sua *classe callout* (String)
+<br>
+**seuMetadadoDeContrato**: o metadado de contrato definido por você anteriormente
+
+Requisição dentro de uma classe:
+```apex
+public class UserCallout {
+    
+    public void fetchAllUsers()
+    {
+        C3C_RestService.service.sendRequest(this, 'getAllEmployees');
+       
+    }
+    
+}
+```
+
+### Obtendo os dados retornados da requisição:
+Como o método **sendRequest** retorna um objeto da classe **C3C_CalloutResponseDTO**, podemos obter tanto a request quanto a response da requisição.
+
+```apex
+ C3C_CalloutResponseDTO dataTransferObject = C3C_RestService.service.sendRequest(QuemChamou, seuMetadadoDeContrato);
+
+```
+
+Obtendo o body da resposta:
+
+```apex
+ C3C_CalloutResponseDTO dataTransferObject = C3C_RestService.service.sendRequest(QuemChamou, seuMetadadoDeContrato);
+System.debug(dataTransferObject.response.getBody());
+```
 
 ## Classes
+
+### C3C_CalloutContract
