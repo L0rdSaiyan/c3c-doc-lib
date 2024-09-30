@@ -4,7 +4,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/c3csoftware">
-    <img src="https://media.discordapp.net/attachments/472081051120828416/1288998376955973642/c3c-software-logo.png?ex=66fa8489&is=66f93309&hm=ffdc3e3e9ca6b29aadfb552caf11b831350c74fd3af839eca5b8ef589daa8a92&=&format=webp&quality=lossless" alt="Logo" width="80" height="80">
+    <img src="https://media.discordapp.net/attachments/472081051120828416/1288998376955973642/c3c-software-logo.png?ex=66fbd609&is=66fa8489&hm=fb961b965fc7fb50d41ebd4ef4b251884b34aa50956b253a8ee842f8bee28b5f&=&format=webp&quality=lossless" alt="Logo" width="80" height="80">
   </a>
 
 <h3 align="center">C3C Software Callout LIB</h3>
@@ -194,3 +194,36 @@ System.debug(dataTransferObject.response.getBody());
 ## Classes
 
 ### C3C_CalloutContract
+
+### Métodos
+
+#### setHost
+
+<span>O método setHost irá sobrescrever, em sua classe, a informação de Host no seu metadado callout contract</span>
+
+```apex
+public class YourContract extends C3C_CalloutContract{
+
+    public override void buildContract(Object request)
+    {
+        this.setHost('seuNovoHost');
+    }
+    
+}
+```
+
+#### setUrlPath
+
+<span> O método setUrlPath irá sobrescrever, em sua classe, a informação de Url Path da requisição no seu metadado Callout Contract</span>
+
+```apex
+public class YourContract extends C3C_CalloutContract{
+    public override void buildContract(Object request)
+    {
+        this.setUrlPath('seuNovoUrlPath');
+    }
+}
+```
+#### addUrlParam irá sobrescrever, em sua classe, 
+
+<span>O Método addUrlParam</span>
