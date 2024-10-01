@@ -309,9 +309,7 @@ public UserViewModel createUser(UserViewModel newUser)
     {
 		
         String userJSON = JSON.serialize(newUser);
-        System.debug('json'+userJSON);
         C3C_CalloutResponseDTO response = C3C_RestService.service.sendRequest(this, 'funcionarioCreation', userJSON);
-        System.debug('body'+response.response.getBody());
         UserViewModel createdUser = new UserViewModel();
         if(response.isResponseSuccess)
         {
