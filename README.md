@@ -57,7 +57,7 @@
 <li><a href="#obtendo-os-dados-retornados-da-requisição">Obtendo os Dados da Requisição</a></li>
 </ul
     </ul>
-    <li><a href="#classes">Classes</a></li>
+    <li><a href="#classes">Classes e Métodos</a></li>
         <ul>
             <li><a href="#c3c_calloutcontract">C3C_CalloutContract</a></li>
         </ul>
@@ -224,6 +224,47 @@ public class YourContract extends C3C_CalloutContract{
     }
 }
 ```
-#### addUrlParam irá sobrescrever, em sua classe, 
+#### addUrlParam irá adicionar, em sua url, parâmetros.
 
-<span>O Método addUrlParam</span>
+```apex
+public class YourContract extends C3C_CalloutContract{
+    public override void buildContract(Object request)
+    {
+        this.addUrlParam('parametro', 'valor');
+    }
+}
+```
+Com esse método, você não precisa declarar uma variável em seu path no metadado de contrato.
+
+#### setTimeout
+
+Com esse método, você irá sobrescrever o tempo de espera pela resposta da API presente em seu metadado de contrato.
+
+```apex
+public class YourContract extends C3C_CalloutContract{
+    public override void buildContract(Object request)
+    {
+        //exemplo o qual irá mudar o timeout para 120000
+        this.setTimeout(120000);
+    }
+}
+```
+
+#### setMethod
+
+Esse método irá sobrescrever o verbo HTTP definido no metadado de contrato
+
+```apex
+public class YourContract extends C3C_CalloutContract{
+    public override void buildContract(Object request)
+    {
+        //exemplo o qual irá mudar o método para POST
+        this.setMethod('POST');
+    }
+}
+```
+
+#### setBody
+
+
+
