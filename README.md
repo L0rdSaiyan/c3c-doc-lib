@@ -266,5 +266,35 @@ public class YourContract extends C3C_CalloutContract{
 
 #### setBody
 
+Com esse método, você consegue enviar o body para uma requisição.
 
-
+```apex
+public class YourContract extends C3C_CalloutContract{
+    public override void buildContract(Object request)
+    {
+        //Você só precisará fazer o casting para o tipo do body que você deseja.
+        this.setBody((String) request);
+    }
+}
+```
+Exemplo de uso:
+```apex
+public UserViewModel createUser(UserViewModel newUser)
+    {
+		
+        String userJSON = JSON.serialize(newUser);
+        System.debug('json'+userJSON);
+        C3C_CalloutResponseDTO response = C3C_RestService.service.sendRequest(this, 'funcionarioCreation', userJSON);
+        System.debug('body'+response.response.getBody());
+        UserViewModel createdUser = new UserViewModel();
+        if(response.isResponseSuccess)
+        {
+		createdUser = (UserViewModel) JSON.deserialize(response.response.getBody(), UserViewModel.class);
+		System.debug('usuario criado'+createdUser);
+        }
+        
+        return createdUser;
+        
+        
+    }
+```
