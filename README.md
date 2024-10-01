@@ -314,7 +314,6 @@ public UserViewModel createUser(UserViewModel newUser)
         if(response.isResponseSuccess)
         {
 		createdUser = (UserViewModel) JSON.deserialize(response.response.getBody(), UserViewModel.class);
-		System.debug('usuario criado'+createdUser);
         }
         
         return createdUser;
