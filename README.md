@@ -232,7 +232,7 @@ public class YourContract extends C3C_CalloutContract{
 
     public override void buildContract(Object request)
     {
-        this.setHost('seuNovoHost');
+        this.setHost('seuNovoHost'); // https://seuNovoHost.com
     }
     
 }
@@ -246,7 +246,7 @@ public class YourContract extends C3C_CalloutContract{
 public class YourContract extends C3C_CalloutContract{
     public override void buildContract(Object request)
     {
-        this.setUrlPath('seuNovoUrlPath');
+        this.setUrlPath('seuNovoUrlPath'); // https://seuNovoHost.com/seuNovoUrlPath
     }
 }
 ```
@@ -256,7 +256,7 @@ public class YourContract extends C3C_CalloutContract{
 public class YourContract extends C3C_CalloutContract{
     public override void buildContract(Object request)
     {
-        this.addUrlParam('parametro', 'valor');
+        this.addUrlParam('parametro', 'valor'); // parametro: valor
     }
 }
 ```
@@ -330,7 +330,7 @@ Com esse método, você consegue enviar o header para uma requisição.
 public class YourContract extends C3C_CalloutContract{
     public override void buildContract(Object request)
     {
-	this.addHeaderLine(String key, String value); // Key: Value
+	this.addHeaderLine(String key, String value); // key: value
     }
 }
 ```
