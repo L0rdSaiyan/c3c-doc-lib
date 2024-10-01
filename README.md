@@ -334,3 +334,30 @@ public class YourContract extends C3C_CalloutContract{
     }
 }
 ```
+
+#### setSuccessCodes
+
+Com esse método, você consegue sobrescrever o código de sucesso da requisição no seu metadado Callout Contract.
+
+```apex
+public class YourContract extends C3C_CalloutContract{
+    public override void buildContract(Object request)
+    {
+	this.setSuccessCodes(String successCodes);
+    }
+}
+```
+
+#### addEndpointKeyValue
+
+Com esse método, você consegue adicionar algum valor dinamicamente no path da requisição informado pelo seu metadado Callout Contract.
+
+```apex
+public class YourContract extends C3C_CalloutContract{
+    public override void buildContract(Object request)
+    {
+	// path: /api/exemplo/{!example}
+	this.keysEndpoint.put(key, value); // 'example' : (String) request;
+    }
+}
+```
