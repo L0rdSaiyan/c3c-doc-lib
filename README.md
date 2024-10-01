@@ -321,3 +321,16 @@ public UserViewModel createUser(UserViewModel newUser)
         
     }
 ```
+
+#### addHeaderLine
+
+Com esse método, você consegue enviar o header para uma requisição.
+
+```apex
+public class YourContract extends C3C_CalloutContract{
+    public override void buildContract(Object request)
+    {
+	this.addHeaderLine(String key, String value); // Key: Value
+    }
+}
+```
