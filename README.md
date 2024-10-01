@@ -4,7 +4,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/c3csoftware">
-    <img src="https://media.discordapp.net/attachments/472081051120828416/1288998376955973642/c3c-software-logo.png?ex=66fbd609&is=66fa8489&hm=fb961b965fc7fb50d41ebd4ef4b251884b34aa50956b253a8ee842f8bee28b5f&=&format=webp&quality=lossless" alt="Logo" width="80" height="80">
+    <img src="https://media.discordapp.net/attachments/472081051120828416/1288998376955973642/c3c-software-logo.png?ex=66fd2789&is=66fbd609&hm=bd2766806b47b46cede76a79483c43df47011b45d897133f86bfd5520ae13654&=&format=webp&quality=lossless" alt="Logo" width="80" height="80">
   </a>
 
 <h3 align="center">C3C Software Callout LIB</h3>
@@ -21,50 +21,57 @@
   </p>
 </div>
 
-
-  
 <!-- TABLE OF CONTENTS -->
-  <summary>Conteúdo</summary>
-  <ol>
-    <li>
-      <a href="#sobre-o-projeto">Sobre o Projeto</a>
-      <ul>
-        <li><a href="#propósito">Propósito</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started">Começando</a>
-      <ul>
-        <li><a href="#instalação">Instalação</a></li>
-      </ul>
-    </li>
-    <li><a href="#uso">Uso</a></li>
+<summary>Conteúdo</summary>
+<ol>
+  <li>
+    <a href="#sobre-o-projeto">Sobre o Projeto</a>
     <ul>
-        <li><a href="#metadados">Metadados</a></li>
-        <ul>
-            <li><a href="#c3c-callout-config">C3C Callout Config</a></li>
-        </ul>
-        <ul>
-            <li><a href="#c3c-callout-contract">C3C Callout Contract</a></li>
-        </ul>
-         <li>
-            <a href="#criação-da-classe-callout-contract">Criação da classe Callout Contract</a>
-        </ul>
-        <ul>
+      <li><a href="#propósito">Propósito</a></li>
+    </ul>
+  </li>
+  <li>
+    <a href="#getting-started">Começando</a>
+    <ul>
+      <li><a href="#instalação">Instalação</a></li>
+    </ul>
+  </li>
+  <li><a href="#uso">Uso</a></li>
+  <ul>
+      <li><a href="#metadados">Metadados</a></li>
+      <ul>
+          <li><a href="#c3c-callout-config">C3C Callout Config</a></li>
+      </ul>
+      <ul>
+          <li><a href="#c3c-callout-contract">C3C Callout Contract</a></li>
+      </ul>
+      <li>
+          <a href="#criação-da-classe-callout-contract">Criação da classe Callout Contract</a>
+      </li>
+      <ul>
         <li><a href="#realizando-a-requisição">Realizando a requisição</a></li>
-    </ul>
-<ul>
-<li><a href="#obtendo-os-dados-retornados-da-requisição">Obtendo os Dados da Requisição</a></li>
-</ul
-    </ul>
-    <li><a href="#classes">Classes e Métodos</a></li>
-        <ul>
-            <li><a href="#c3c_calloutcontract">C3C_CalloutContract</a></li>
-        </ul>
-    <li><a href="#objetos">Objetos</a></li>
-    <li><a href="#contributing">Contribuidores</a></li>
-    <li><a href="#contact">Contato</a></li>
-  </ol>
+      </ul>
+      <ul>
+        <li><a href="#obtendo-os-dados-retornados-da-requisição">Obtendo os Dados da Requisição</a></li>
+      </ul>
+  </ul>
+  <li><a href="#classes">Classes e Métodos</a></li>
+  <ul>
+      <li><a href="#c3c_calloutcontract">C3C_CalloutContract</a></li>
+      <ul>
+        <li><a href="#sethost">setHost</a></li>
+        <li><a href="#seturlpath">setUrlPath</a></li>
+        <li><a href="#addurlparam">addUrlParam</a></li>
+        <li><a href="#settimeout">setTimeout</a></li>
+        <li><a href="#setmethod">setMethod</a></li>
+        <li><a href="#setbody">setBody</a></li>
+      </ul>
+  </ul>
+  <li><a href="#objetos">Objetos</a></li>
+  <li><a href="#contributing">Contribuidores</a></li>
+  <li><a href="#contact">Contato</a></li>
+</ol>
+
 
 ## Sobre o Projeto
 
@@ -196,6 +203,25 @@ System.debug(dataTransferObject.response.getBody());
 ### C3C_CalloutContract
 
 ### Métodos
+
+#### buildContract
+
+ Ele deve ser sobrescrito obrigatoriamente por qualquer classe que estenda a C3C_CalloutContract. O objetivo principal deste método é montar o contrato com base nas configurações e dados recebidos. Aqui está uma explicação detalhada do funcionamento:
+
+```apex
+public class YourContract extends C3C_CalloutContract{
+
+    public override void buildContract(Object request)
+    {
+       
+    }
+    
+}
+```
+
+O parâmetro request do tipo Object é utilizado para capturar os dados que estão sendo passados para o contrato. Estes dados representam toda a informação enviada na requisição, como parâmetros, corpo da requisição, e cabeçalhos, dependendo da necessidade da chamada.
+
+O método buildContract serve para ajustar as configurações da chamada de API de forma dinâmica, conforme os dados que foram passados pelo parâmetro request. 
 
 #### setHost
 
