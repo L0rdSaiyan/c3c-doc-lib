@@ -80,11 +80,6 @@
 
 ## Começando 
 
-
-### Pré-requsitos
-
-Confirmar com o Luidy dps se a lib só funfa a partir alguma versão específica
-
 ### Instalação
 
 1. Acesse a página de deploy da biblioteca 
