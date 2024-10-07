@@ -65,6 +65,9 @@
         <li><a href="#settimeout">setTimeout</a></li>
         <li><a href="#setmethod">setMethod</a></li>
         <li><a href="#setbody">setBody</a></li>
+	<li><a href="#addHeaderLine">addHeaderLine</a></li>
+ 	<li><a href="#setSuccessCodes">setSuccessCodes</a></li>
+   	<li><a href="#addEndpointKeyValue">addEndpointKeyValue</a></li>
       </ul>
   </ul>
   <li><a href="#objetos">Objetos</a></li>
