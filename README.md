@@ -4,7 +4,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/c3csoftware">
-    <img src="https://media.discordapp.net/attachments/472081051120828416/1288998376955973642/c3c-software-logo.png?ex=66fd2789&is=66fbd609&hm=bd2766806b47b46cede76a79483c43df47011b45d897133f86bfd5520ae13654&=&format=webp&quality=lossless" alt="Logo" width="80" height="80">
+    <img src="/imgs/c3clogo.png" alt="Logo" width="80" height="80">
   </a>
 
 <h3 align="center">C3C Software Callout LIB</h3>
@@ -105,7 +105,7 @@ Confirmar com o Luidy dps se a lib só funfa a partir alguma versão específica
 #### C3C Callout Config
    <span>Trata-se da configuração **macro** do sistema externo</span>
 
-![](https://media.discordapp.net/attachments/472081051120828416/1289012142246465617/image.png?ex=66f7459b&is=66f5f41b&hm=7272f6c2a9ff148b17ae291ec24906fd823916e9fa2e636dce90b44c74f706df&=&format=webp&quality=lossless)
+![](/imgs/calloutconfig.jpg)
 
 - **1 (Label):** Defina o rótulo de exibição da sua Callout Config - **OBRIGATÓRIO**
 - **2 (C3C Callout Config Name):** O nome de API de sua Callout Config - **OBRIGATÓRIO**
@@ -123,7 +123,7 @@ Confirmar com o Luidy dps se a lib só funfa a partir alguma versão específica
 
 <span>Será no metadado C3C Callout Cotnract onde você irá configurar as rotas do Host (API) </span>
 
-![](https://media.discordapp.net/attachments/472081051120828416/1289022458984267847/calloutcontract.jpg?ex=66f74f37&is=66f5fdb7&hm=9b1075035982057a4aae1c697a4a0e6ece946e1adfbd18dcef14957e14d36256&=&format=webp)
+![](/imgs/calloutcontract.jpg)
 
 - **1 (Label):** Defina o rótulo de exibição da sua Callout Contract- **OBRIGATÓRIO**
 - **2 (C3C Callout Contract Name):** O nome de API de sua Callout Contract - **OBRIGATÓRIO**
