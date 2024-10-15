@@ -68,6 +68,7 @@
 	<li><a href="#addHeaderLine">addHeaderLine</a></li>
  	<li><a href="#setSuccessCodes">setSuccessCodes</a></li>
    	<li><a href="#addEndpointKeyValue">addEndpointKeyValue</a></li>
+	<li><a href="#getHttpRequest">getHttpRequest</li>
       </ul>
   </ul>
   <li><a href="#objetos">Objetos</a></li>
@@ -274,6 +275,28 @@ public class YourContract extends C3C_CalloutContract{
 }
 ```
 
+#### setCalloutConfig
+Define a calloutconfig de callout.
+
+```
+public class YourContract extends C3C_CalloutContract{
+    public override void buildContract(Object request)
+    {
+	   this.setCalloutConfig(C3C_CalloutConfigDTO calloutConfiguration);
+    }
+}
+```
+#### isStatusError 
+
+```
+public class YourContract extends C3C_CalloutContract{
+    public override void buildContract(Object request)
+    {
+	    this.isStatusError(HttpResponse httpResponse);
+    }
+}
+```
+
 #### setMethod
 
 Esse método irá sobrescrever o verbo HTTP definido no metadado de contrato
@@ -359,3 +382,16 @@ public class YourContract extends C3C_CalloutContract{
     }
 }
 ```
+
+#### getHttpRequest
+Cria e retorna um objeto HttpRequest com os dados configurados. Esse método é responsável por montar a requisição completa, incluindo host, path, headers, método e body.
+
+```
+public class YourContract extends C3C_CalloutContract{
+    public override void buildContract(Object request)
+    {
+	    this.getHttpRequest();
+    }
+}
+```
+
