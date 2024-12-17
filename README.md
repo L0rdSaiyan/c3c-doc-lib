@@ -70,6 +70,22 @@
    	<li><a href="#addEndpointKeyValue">addEndpointKeyValue</a></li>
 	<li><a href="#getHttpRequest">getHttpRequest</li>
       </ul>
+    <li><a href="#C3C_RestService">C3C_RestService</a></li>
+    <ul>
+        <li><a href="#sendrequest">sendRequest</a></li>
+        <li><a href="#atributos-de-di">Atributos de DI <a></li>
+        <ul>
+        <li><a href="#whoCalledRestService#">whoCalledRestService<a></li>
+        <li><a href="#calloutContractSelector#">calloutContractSelector<a></li>
+        <li><a href="#calloutLogService#">calloutLogService<a></li>
+        <li><a href="#calloutAuthorizationCodeSelector#">calloutAuthorizationCodeSelector<a></li>
+    </ul>
+    </ul>
+        <li><a href="#C3C_CalloutLogService ">C3C_CalloutLogService</a></li>
+        <ul>
+            <li><a href="#createCalloutLogFromHttpResponse">createCalloutLogFromHttpResponse</a></li>
+        </ul>
+        <li><a href="#C3C_CalloutResponseDTO">C3C_CalloutResponseDTO </a></li>
   </ul>
   <li><a href="#objetos">Objetos</a></li>
   <li><a href="#contributing">Contribuidores</a></li>
@@ -118,9 +134,9 @@
 - **10 (Id do cliente):** Um identificador público único que representa o aplicativo
 - **11(Authorization Code Type):** métodos de autenticação e autorização (Bearer e Basic) em APIs e sistemas de autenticação, especialmente em protocolos como OAuth 2.0
 
-#### C3C Callout Contract
+### C3C Callout Contract
 
-<span>Será no metadado C3C Callout Cotnract onde você irá configurar as rotas do Host (API) </span>
+<span>Será no metadado C3C Callout Contract onde você irá configurar as rotas do Host (API) </span>
 
 ![](/imgs/calloutcontract.jpg)
 
@@ -395,3 +411,65 @@ public class YourContract extends C3C_CalloutContract{
 }
 ```
 
+
+### C3C_RestService
+
+#### sendRequest 
+Esse método possui 3 assinaturas diferentes, permitindo flexibilidade no uso de parâmetros conforme a necessidade.
+
+Realiza uma chamada passando o nome do metadado do contrato e um parâmetro que pode ser de qualquer tipo (Object), bastando fazer o casting para o tipo desejado.
+
+```Apex
+C3C_CalloutResponseDTO calloutResponse = C3C_RestService.service.sendRequest(String calloutContractDevname, Object param);
+
+```
+Realiza uma chamada passando a classe o qual chamou o sendRequest e o nome do metadado de contrato
+```Apex
+C3C_CalloutResponseDTO calloutResponse = C3C_RestService.service.sendRequest(Object whoCalled, String calloutContractDevname);
+
+```
+Realiza uma chamada passando apenas o nome do metadado de contrato
+```Apex
+C3C_CalloutResponseDTO calloutResponse = C3C_RestService.service.sendRequest(String calloutContractDevname);
+
+```
+
+#### whoCalledRestService
+
+É um atributo para consultar qual classe chamou a restService 
+
+```Apex
+ public static String whoCalledRestService;
+```
+
+### Atributos de DI 
+
+#### calloutContractSelector
+Você consegue injetar a dependência da selector a partir do atributo do tipo da interface da selector (C3C_ICalloutContractSelector)
+```Apex 
+  @TestVisible
+    private C3C_ICalloutContractSelector calloutContractSelector;
+```
+
+#### calloutLogService
+Você consegue injetar a dependência da selector a partir do atributo do tipo da interface da LogService (C3C_ICalloutLogService)
+
+```Apex 
+ @TestVisible
+    private C3C_ICalloutLogService calloutLogService;
+```
+
+#### calloutAuthorizationCodeSelector
+Você consegue injetar a dependência da selector a partir do atributo do tipo da interface da calloutAuthorizationCodeSelector (C3C_ICalloutAuthorizationCodeSelector)
+```Apex 
+ @TestVisible
+    private C3C_ICalloutAuthorizationCodeSelector calloutAuthorizationCodeSelector;
+```
+
+### C3C_CalloutLogService 
+
+#### createCalloutLogFromHttpResponse
+Esse método é o responsável por gerar o registro de log e retornar o Id 
+```Apex
+     calloutResponseDTO.calloutLogId = this.calloutLogService.createCalloutLogFromHttpResponse(C3C_CalloutContract.C3C_HttpRequest request, HttpResponse response); 
+```
